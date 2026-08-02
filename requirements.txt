@@ -7,8 +7,8 @@ Werkzeug==3.0.1
 # ==========================================
 # XỬ LÝ ẢNH & TOÁN HỌC (COMPUTER VISION)
 # ==========================================
-opencv-python-headless==4.9.0.80
-numpy==1.26.4
+numpy
+opencv-python-headless
 
 # ==========================================
 # TRÍCH XUẤT BÁO CÁO (PDF GENERATOR)
@@ -18,12 +18,11 @@ reportlab==4.1.0
 # ==========================================
 # HỌC SÂU & AI (DEEP LEARNING / YOLO)
 # ==========================================
-torch==2.2.1
-torchvision==0.17.1
+torch
+torchvision
 ultralytics==8.1.24
 
 # ==========================================
 # MÔI TRƯỜNG CHẠY THẬT (PRODUCTION SERVER - TÙY CHỌN)
 # ==========================================
 waitress==3.0.0
-reportlab
