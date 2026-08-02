@@ -16,7 +16,14 @@ import threading
 from datetime import datetime
 from typing import Tuple, Dict, Any, List
 from urllib.parse import urlparse, unquote
+import gc
+import torch
 
+# ==========================================
+# CẤU HÌNH TỐI ƯU RAM CHO RENDER FREE (DƯỚI 512MB)
+# ==========================================
+torch.set_grad_enabled(False)  # Tắt tính năng tính đạo hàm -> Tiết kiệm 40% RAM
+torch.set_num_threads(1)       # Ép PyTorch chạy 1 luồng -> Chống vọt RAM
 from flask import (
     Flask,
     render_template,
