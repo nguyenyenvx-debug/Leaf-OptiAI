@@ -25,6 +25,9 @@ from flask import (
     send_from_directory,
     url_for
 )
+# Import bộ phân tích AI thực tế của bạn
+from models.predict import predict_thermal_image, Config # (Thay đổi tên hàm/class cho khớp với code thật của bạn)
+
 import cv2
 import numpy as np
 
@@ -152,7 +155,7 @@ class ThermalImageAnalyzer:
         total_pixels = h * w
         
         try:
-            from models.predict import predict_thermal_image
+            from model.predict import predict_thermal_image
             seg_bgr, binary_mask, custom_metrics = predict_thermal_image(image_path, self.model_path)
             
             inference_time = round((time.time() - start_time) * 1000, 1)
