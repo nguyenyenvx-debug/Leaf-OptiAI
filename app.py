@@ -155,7 +155,7 @@ class ThermalImageAnalyzer:
         total_pixels = h * w
         
         try:
-            from model.predict import predict_thermal_image
+            from models.predict import predict_thermal_image
             seg_bgr, binary_mask, custom_metrics = predict_thermal_image(image_path, self.model_path)
             
             inference_time = round((time.time() - start_time) * 1000, 1)
