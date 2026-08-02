@@ -26,7 +26,7 @@ from flask import (
     url_for
 )
 # Import bộ phân tích AI thực tế của bạn
-from models.predict import predict_thermal_image, Config # (Thay đổi tên hàm/class cho khớp với code thật của bạn)
+from models.predict import predict_thermal_image # (Thay đổi tên hàm/class cho khớp với code thật của bạn)
 
 import cv2
 import numpy as np
