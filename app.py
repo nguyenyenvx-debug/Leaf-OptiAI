@@ -680,5 +680,6 @@ def download_excel(filename):
 
 
 if __name__ == '__main__':
-    logger.info("Khởi chạy Server Flask trên http://127.0.0.1:5000")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    logger.info(f"Khởi chạy Server Flask trên port {port}")
+    app.run(host='0.0.0.0', port=port, debug=False)
