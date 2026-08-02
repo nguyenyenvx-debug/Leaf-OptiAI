@@ -65,7 +65,7 @@ class Config:
     
     PDF_FOLDER = os.path.join(BASE_DIR, 'pdf')
     EXCEL_FOLDER = os.path.join(BASE_DIR, 'exports')
-    MODEL_PATH = os.path.join(BASE_DIR, 'model', 'best.pt')
+    MODEL_PATH = os.path.join(BASE_DIR, 'models', 'best.pt')
     
     MAX_CONTENT_LENGTH = 32 * 1024 * 1024
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'tif', 'tiff', 'bmp'}
@@ -152,7 +152,7 @@ class ThermalImageAnalyzer:
         total_pixels = h * w
         
         try:
-            from model.predict import predict_thermal_image
+            from models.predict import predict_thermal_image
             seg_bgr, binary_mask, custom_metrics = predict_thermal_image(image_path, self.model_path)
             
             inference_time = round((time.time() - start_time) * 1000, 1)
