@@ -661,3 +661,112 @@ body {
         justify-content: center;
     }
 }
+
+/* Import Font Roboto từ Google Fonts (Nếu bạn chưa có) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+/* ========================================== */
+/* STYLES CHO KHỐI ẢNH MẪU (ĐÓNG KHUNG CARD)  */
+/* ========================================== */
+
+/* Bao ngoài: Khung màu trắng bo góc & đổ bóng như "Lịch sử phân tích" */
+.sample-accordion {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0; /* Viền xám nhạt chuẩn khung card */
+  border-radius: 10px; /* Bo góc tròn */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Bóng mờ nhẹ phía dưới */
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 35px;
+  overflow: hidden; /* Giúp các góc bên trong không tràn ra khỏi khung */
+}
+
+/* Dòng chữ có mũi tên (Màu cam đậm, Font Roboto) */
+.sample-title {
+  font-family: 'Roboto', sans-serif;
+  color: #d35400;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px; /* Tăng padding chút cho khung thoáng đẹp */
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  
+  /* BỔ SUNG: Ẩn mũi tên tam giác đen mặc định của thẻ <summary> */
+  list-style: none; 
+}
+
+/* BỔ SUNG: Ẩn mũi tên mặc định trên Chrome/Safari/Edge */
+.sample-title::-webkit-details-marker {
+  display: none;
+}
+
+/* ======================================================= */
+/* VẼ MŨI TÊN BẰNG CSS THUẦN (Sắc nét, không bị lỗi font) */
+/* ======================================================= */
+.sample-title::after {
+  content: ''; 
+  display: inline-block;
+  width: 9px;  
+  height: 9px; 
+  margin-left: 10px;
+  
+  border-right: 2.5px solid #d35400; 
+  border-bottom: 2.5px solid #d35400; 
+  
+  transform: translateY(-3px) rotate(45deg); 
+  transition: transform 0.3s ease;
+}
+
+/* HIỆU ỨNG: Khi mở khối ảnh ra, mũi tên xoay ngược lên trên */
+details[open] .sample-title::after {
+  transform: translateY(2px) rotate(225deg); 
+}
+
+.sample-title:hover {
+  background-color: #fff7ed;
+}
+
+/* Hộp chứa ảnh bên trong khung */
+.sample-content {
+  padding: 15px 20px 20px 20px;
+  background-color: #f8fafc;
+  border-top: 1px solid #f1f5f9; /* Đường kẻ ngang phân cách nhẹ với tiêu đề */
+}
+
+.sample-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 8px;
+}
+
+.sample-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Đổi viền hover sang cam cho đồng bộ tone màu */
+.sample-img:hover {
+  transform: translateY(-4px) scale(1.05);
+  border-color: #d35400;
+  box-shadow: 0 4px 12px rgba(211, 84, 0, 0.25);
+}
+
+/* Nguồn ghi chú (Font 11px, màu xám) */
+.sample-source {
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 8px;
+}
