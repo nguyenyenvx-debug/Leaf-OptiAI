@@ -503,3 +503,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ==========================================
+// XỬ LÝ SỰ KIỆN CLICK VÀO ẢNH MẪU
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const sampleImages = document.querySelectorAll('.sample-img');
+    const fileInput = document.getElementById('image-input'); // Đảm bảo ID này đúng với thẻ input của bạn
+
+    sampleImages.forEach(img => {
+        img.addEventListener('click', async function () {
+            const imageUrl = this.src;
+            const fileName = this.getAttribute('data-filename') || 'sample.jpg';
+
+            try {
+                const response = await fetch(imageUrl);
+                const blob = await response.blob();
+                const file = new File([blob], fileName, { type: blob.type || 'image/jpeg' });
+
+                if (fileInput) {
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(file);
+                    fileInput.files = dataTransfer.files;
+                    
+                    // KÍCH HOẠT SỰ KIỆN CHANGE ĐỂ ẢNH TỰ HIỂN THỊ VÀO Ô ORIGIN
+                    fileInput.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            } catch (error) {
+                console.error('Lỗi khi nạp ảnh mẫu:', error);
+            }
+        });
+    });
+});
